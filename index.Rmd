@@ -1,0 +1,66 @@
+---
+title       : Slidify
+subtitle    : Introduction to slidify
+author      : Wen Jie
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : prettify  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft} 
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+1. Created by Ramnath Vaidyanathan
+2. Supports various technologies
+3. Customizable and easy to use
+
+--- .class #id 
+
+## Dataset
+
+Iris dataset
+```{r}
+data(iris)
+names(iris)
+```
+
+---
+
+## Loading Slidify
+
+To load, install packages of slidify and create new project
+```{r eval=FALSE}
+install.packages("devtools")
+library(devtools)
+install_github('slidify','ramnathv')
+install_github('slidifyLibraries','ramnathv')
+```
+
+```{r eval=FALSE}
+author("project name")
+```
+After the slides have been done, use the below command:
+```{r eval=FALSE}
+slidify("index.Rmd")
+browseURL("index.html")
+```
+
+---
+
+## Errors
+
+If you encounter problem like the below:
+```{r}
+#output file: index.md
+
+#Error in if (body$content == "") { : 
+#  missing value where TRUE/FALSE needed
+```
+Use the fix below:
+
+```{r eval=FALSE}
+install_github('ramnathv/slidify', ref = github_pull(425))
+```
